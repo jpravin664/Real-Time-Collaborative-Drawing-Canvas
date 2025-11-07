@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 1400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+#userIndicator {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+#onlineUsers {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.toolbar {
+  background: #f8f9fa;
+  padding: 15px 30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tool-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.tool-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.tool-btn {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-btn:hover {
+  border-color: #667eea;
+  background: #f0f0ff;
+}
+
+.tool-btn.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.tool-btn svg {
+  display: block;
+}
+
+#brushSize {
+  width: 100px;
+}
+
+#sizeValue {
+  font-weight: 600;
+  color: #667eea;
+  min-width: 30px;
+  text-align: center;
+}
+
+#colorPicker {
+  width: 50px;
+  height: 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.color-presets {
+  display: flex;
+  gap: 5px;
+}
+
+.color-preset {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-preset:hover {
+  transform: scale(1.1);
+  border-color: #667eea;
+}
+
+.status {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.connected {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.disconnected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: white;
+  overflow: hidden;
+}
+
+#drawingCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+#cursors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cursor {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.05s linear;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cursor-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.user-list {
+  background: #f8f9fa;
+  padding: 20px 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.user-list h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#usersList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: white;
+  border-radius: 20px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-badge .color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .tool-group {
+    justify-content: center;
+  }
+
+  .canvas-container {
+    height: 400px;
+  }
+}
