@@ -22,6 +22,8 @@ A real-time multi-user drawing application where multiple people can draw simult
 - **Backend**: Node.js, Express, WebSocket (ws library)
 - **No frameworks**: Pure JavaScript implementation
 
+![OUTPUT](./output/result.png)
+
 ## Setup Instructions
 
 ### Prerequisites
@@ -122,7 +124,3 @@ Approximately 4-5 hours:
 - Image upload
 - Export canvas as PNG
 - Drawing history/replay
-
-## License
-
-MIT
